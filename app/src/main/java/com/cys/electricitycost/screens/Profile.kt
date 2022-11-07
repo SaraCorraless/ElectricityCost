@@ -12,8 +12,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import com.cys.apiservice.APIService
 import com.cys.electricitycost.navigation.AppNavigation
 import com.cys.electricitycost.navigation.AppScreens
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 @Composable
@@ -23,6 +29,7 @@ fun ProfileScreem(navController: NavController){
 
 
     }
+
 }
 
 @Composable
@@ -45,4 +52,24 @@ fun BodyContentProfile(navController: NavController){
 @Composable
 fun DefaultPreviewProfile(){
     AppNavigation()
+}
+
+private fun getRetrofit():Retrofit{
+    return Retrofit.Builder()
+        .baseUrl("https://api.preciodelaluz.org/v1/prices/min")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+}
+
+private fun searchByZone(query:String){
+    CoroutineScope(Dispatchers.IO).launch {
+        val call = getRetrofit().create(APIService::class.java).getDogsByBreeds("$query/images")
+        val puppies = call.body()
+        if(call.isSuccessful){
+            //show Recyclerview
+        }else{
+            //show error
+        }
+    }
+
 }

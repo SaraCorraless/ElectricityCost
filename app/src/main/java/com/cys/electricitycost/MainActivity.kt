@@ -20,6 +20,7 @@ class MainActivity : ComponentActivity() {
             AppNavigation()
 
         }
+        //binding = ActivityMainBinding.inflate(layoutInflater)
 
     }
 
