@@ -56,15 +56,15 @@ fun DefaultPreviewProfile(){
 
 private fun getRetrofit():Retrofit{
     return Retrofit.Builder()
-        .baseUrl("https://api.preciodelaluz.org/v1/prices/min")
+        .baseUrl("https://api.preciodelaluz.org/v1/prices/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
 
 private fun searchByZone(query:String){
     CoroutineScope(Dispatchers.IO).launch {
-        val call = getRetrofit().create(APIService::class.java).getDogsByBreeds("$query/images")
-        val puppies = call.body()
+        val call = getRetrofit().create(APIService::class.java).getLuzNow("now", "PCB")
+        val luz = call.body()
         if(call.isSuccessful){
             //show Recyclerview
         }else{
