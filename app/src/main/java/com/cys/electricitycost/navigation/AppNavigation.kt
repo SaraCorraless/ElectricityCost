@@ -7,12 +7,14 @@ import androidx.compose.runtime.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.cys.electricity.ApiLuz
 import com.cys.electricitycost.screens.ProfileScreem
 import com.cys.electricitycost.screens.SkillsScreem
 
 @Composable
 fun AppNavigation(){
     val navController = rememberNavController()
+    val apiLuz:ApiLuz = ApiLuz()
     Scaffold(
         bottomBar = {
             BottomNavigation {
@@ -47,10 +49,10 @@ fun AppNavigation(){
     ) {
         NavHost(navController = navController, startDestination = AppScreens.ProfileScreen.route) {
             composable(AppScreens.ProfileScreen.route) {
-                ProfileScreem(navController)
+                ProfileScreem(navController, apiLuz)
             }
             composable(AppScreens.SkillsScreen.route) {
-                SkillsScreem(navController)
+                SkillsScreem(navController, apiLuz)
             }
 
         }

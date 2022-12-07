@@ -11,19 +11,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
+import com.cys.electricity.ApiLuz
 import com.cys.electricitycost.navigation.AppNavigation
 import com.cys.electricitycost.navigation.AppScreens
 
 
 @Composable
-fun SkillsScreem(navController: NavController){
+fun SkillsScreem(navController: NavController, apiLuz: ApiLuz){
     Scaffold {
-        BodyContentSkills(navController)
+        BodyContentSkills(navController, apiLuz)
     }
 }
 
 @Composable
-fun BodyContentSkills(navController: NavController){
+fun BodyContentSkills(navController: NavController, apiLuz: ApiLuz){
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
