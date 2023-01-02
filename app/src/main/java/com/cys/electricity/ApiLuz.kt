@@ -51,6 +51,7 @@ class ApiLuz() {
     }
 
     fun searchAll(query:String) : String{
+
         var luz:String = ""
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(APIService::class.java).getLuzAll("all", "PCB")
