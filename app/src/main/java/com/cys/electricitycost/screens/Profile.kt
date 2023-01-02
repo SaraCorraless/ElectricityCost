@@ -14,8 +14,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.cys.electricity.ApiLuz
 import com.cys.electricitycost.navigation.AppNavigation
-import retrofit2.converter.gson.GsonConverterFactory
-
 
 
 @Composable
@@ -41,9 +39,12 @@ fun BodyContentProfile(navController: NavController, apiLuz: ApiLuz){
         Text(text = "Perfil de Sara")
         Button(onClick = {
             //navController.navigate(route =  AppScreens.SkillsScreen.route)
-            //apiLuz.searchByZone("PCB")
-            //apiLuz.searchMedia("PCB")
-            apiLuz.searchAll("PCB")
+            //apiLuz.searchNow("PCB")  //OK!
+            //apiLuz.searchMedia("PCB") // OK!
+            //apiLuz.searchAll("PCB") //ERROR >> mal mapeo de los datos
+            //apiLuz.searchMax("PCB") // OK!
+            apiLuz.searchMin("PCB")
+            apiLuz.searchMaxEcoN("PCB", "1")
         }) {
             Text(text = "Perfil")
 

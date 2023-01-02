@@ -16,14 +16,14 @@ class ApiLuz() {
             .build()
     }
 
-    fun searchByZone(query:String) : String{
+    fun searchNow(query:String) : String{
         var luz:String = ""
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(APIService::class.java).getLuzNow("now", "PCB")
             luz = call.body().toString()
             if(call.isSuccessful){
                 //show Recyclerview
-                println(luz.toString())
+                println("RESPUESTA OK:  "+luz)
             }else{
                 //show error
                 println("Error en petición")
@@ -40,7 +40,7 @@ class ApiLuz() {
             luz = call.body().toString()
             if(call.isSuccessful){
                 //show Recyclerview
-                println(luz.toString())
+                println("RESPUESTA OK:  "+luz)
             }else{
                 //show error
                 println("Error en petición")
@@ -58,7 +58,62 @@ class ApiLuz() {
             luz = call.body().toString()
             if(call.isSuccessful){
                 //show Recyclerview
-                println("bien "+luz)
+                println("RESPUESTA OK:  "+luz)
+            }else{
+                //show error
+                println("Error en petición")
+            }
+        }
+        return luz
+
+    }
+
+
+    fun searchMax(query:String) : String{
+
+        var luz:String = ""
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = getRetrofit().create(APIService::class.java).getLuzMax("max", "PCB")
+            luz = call.body().toString()
+            if(call.isSuccessful){
+                //show Recyclerview
+                println("RESPUESTA OK:  "+luz)
+            }else{
+                //show error
+                println("Error en petición")
+            }
+        }
+        return luz
+
+    }
+
+    fun searchMin(query:String) : String{
+
+        var luz:String = ""
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = getRetrofit().create(APIService::class.java).getLuzMin("min", "PCB")
+            luz = call.body().toString()
+            if(call.isSuccessful){
+                //show Recyclerview
+                println("RESPUESTA OK:  "+luz)
+            }else{
+                //show error
+                println("Error en petición")
+            }
+        }
+        return luz
+
+    }
+
+    fun searchMaxEcoN(query: String, s: String) : String{
+
+        var luz:String = ""
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = getRetrofit().create(APIService::class.java).getLuzMaxEcoN("cheapests", "PCB")
+            luz = call.body().toString()
+            if(call.isSuccessful){
+                //show Recyclerview
+                println("RESPUESTA OK:  "+luz)
             }else{
                 //show error
                 println("Error en petición")
