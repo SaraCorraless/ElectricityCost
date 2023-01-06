@@ -48,6 +48,7 @@ fun BodyContentProfile(navController: NavController, apiLuz: ApiLuz){
         }) {
             Text(text = "Perfil")
 
+
         }
     }
 }
