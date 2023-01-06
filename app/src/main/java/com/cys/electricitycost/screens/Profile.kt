@@ -39,12 +39,12 @@ fun BodyContentProfile(navController: NavController, apiLuz: ApiLuz){
         Text(text = "Perfil de Sara")
         Button(onClick = {
             //navController.navigate(route =  AppScreens.SkillsScreen.route)
-            //apiLuz.searchNow("PCB")  //OK!
-            //apiLuz.searchMedia("PCB") // OK!
-            //apiLuz.searchAll("PCB") //ERROR >> mal mapeo de los datos
-            //apiLuz.searchMax("PCB") // OK!
-            apiLuz.searchMin("PCB")
-            apiLuz.searchMaxEcoN("PCB", "1")
+            apiLuz.searchNow("PCB")  //OK!
+            apiLuz.searchMedia("PCB") // OK!
+            apiLuz.searchAll("PCB") //OK
+            apiLuz.searchMax("PCB") // OK!
+            apiLuz.searchMin("PCB") //OK
+            //apiLuz.searchMaxEcoN("PCB", "1")
         }) {
             Text(text = "Perfil")
 

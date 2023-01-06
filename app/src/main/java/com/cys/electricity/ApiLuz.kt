@@ -109,7 +109,7 @@ class ApiLuz() {
 
         var luz:String = ""
         CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit().create(APIService::class.java).getLuzMaxEcoN("cheapests", "PCB")
+            val call = getRetrofit().create(APIService::class.java).getLuzMaxEcoN("cheapests", "PCB", "2")
             luz = call.body().toString()
             if(call.isSuccessful){
                 //show Recyclerview
