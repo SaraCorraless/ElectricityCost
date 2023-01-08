@@ -13,8 +13,10 @@ import com.cys.electricitycost.screens.SkillsScreem
 
 @Composable
 fun AppNavigation(){
+
     val navController = rememberNavController()
     val apiLuz:ApiLuz = ApiLuz()
+
     Scaffold(
         bottomBar = {
             BottomNavigation {
